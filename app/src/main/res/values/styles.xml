@@ -6,14 +6,20 @@
     </style>
 
 
-    <style name="ParentMaterialTheme" parent="Theme.AppCompat.Light">
+    <style name="ParentMaterialTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    
+    <style name="ToolbarTheme" parent="ParentMaterialTheme">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
 
-        <item name="colorControlHighlight">#1EF1AB</item>
-        <item name="colorButtonNormal">#F955F3</item>
-        <item name="colorControlActivated">#0CF427</item>
+    <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">#9E9E9E</item>
+        <item name="android:background">#FFFCFFF6</item>
     </style>
 
 </resources>
