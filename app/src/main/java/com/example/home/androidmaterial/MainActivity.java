@@ -17,9 +17,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Welcome");
-        toolbar.setSubtitle("Folks !");
+        toolbar.setTitle("Welcome!");
+        toolbar.setSubtitle("Folks!");
+
+        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                String msg = "";
+                switch (item.getItemId()){
+                    case R.id.discard:
+                        msg = "Delete";
+                        break;
+                    case R.id.search:
+                        msg = "Search";
+                        break;
+                    case R.id.edit:
+                        msg = "Edit";
+                        break;
+                    case R.id.settings:
+                        msg = "Settings";
+                        break;
+                    case R.id.exit:
+                        msg = "Exit";
+                        break;
+                }
+
+                Toast.makeText(getApplicationContext(), msg + " clicked!", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
 
         /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setElevation(10f);
@@ -28,37 +57,5 @@ public class MainActivity extends AppCompatActivity {
         }*/
         //toolbar.setLogo(R.drawable.good_day);
         //toolbar.setNavigationIcon(R.drawable.navigation_back);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        String msg = "";
-
-        switch (item.getItemId()){
-            case R.id.discard:
-                msg = "Delete";
-                break;
-            case R.id.search:
-                msg = "Search";
-                break;
-            case R.id.edit:
-                msg = "Edit";
-                break;
-            case R.id.settings:
-                msg = "Settings";
-                break;
-            case R.id.exit:
-                msg = "Exit";
-                break;
-        }
-
-        Toast.makeText(this, msg + " clicked!", Toast.LENGTH_SHORT).show();
-        return super.onOptionsItemSelected(item);
     }
 }
